@@ -20,7 +20,25 @@ class Deck():
 	'A','A','A','A'
 	]
 
+def counter(card):
+	c = 0
+	if card == '2' or card == '3' or card == '4' or card == '5' or card == '6':
+		c = 1
+	elif card == '7' or card == '8' or card == '9':
+		c = 0
+	elif card == '10':
+		c = c-1
+	elif card == 'J' or card == 'Q' or card == 'K' or card == 'A':
+		c = c-1
+	else:
+		c = 0
+
+	return c
+
 d1 = Deck()
 
 card = d1.cards[random.randint(0,len(d1.cards)-1)]
 print card
+
+count = counter(card)
+print count
