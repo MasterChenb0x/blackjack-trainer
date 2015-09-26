@@ -3,7 +3,7 @@
 import sys
 import random
 
-class Deck():
+def Deck():
 	cards = [
 	'2','2','2','2',
 	'3','3','3','3',
@@ -19,36 +19,47 @@ class Deck():
 	'K','K','K','K',
 	'A','A','A','A'
 	]
+	return cards
 
 def counter(card):
-	c = 0
-	if card == '2' or card == '3' or card == '4' or card == '5' or card == '6':
-		c = 1
-	elif card == '7' or card == '8' or card ==  '9':
-		c = 0
-	elif card == '10':
-		c = c-1
-	elif card == 'J' or card == 'Q' or card == 'K' or card == 'A':
-		c = c-1
-	else:
-		c = 0
-
+	c = -1
+	try:
+		thisCard = int(card)
+		if thisCard <= 6:
+			c = 1
+		elif thisCard <= 9:
+			c = 0
+	except:
+		if card in [10,'J','Q','K','A']:
+			c = -1
 	return c
 
 def usage():
 	print "Welcome to the BlackJack Trainer (Super Alpha)\n\n"
 
-usage()
 d1 = Deck()
 count = 0
+
+DELETEME = 1
+
+usage()
+
 exit = False
 while not exit:
-	card = d1.cards[random.randint(0,len(d1.cards)-1)]
-	print card
+	try:
+		card = d1[random.randint(0,len(d1)-1)]
+	except ValueError:
+		d1 = Deck()
+		card = d1[random.randint(0,len(d1)-1)]
+	print "Your card: {0}".format(card)
 	
 	count = count + counter(card)
-	print count
+	print "The coount is: {0}".format(count)
 
-	response = raw_input("Keep counting?(y/n)")
+	d1.remove(card)
+	print d1
+	response = raw_input("Deal?(y/n)")
 	if response == "n":
 		exit = True
+
+
