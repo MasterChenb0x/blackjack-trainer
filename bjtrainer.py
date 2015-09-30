@@ -40,8 +40,6 @@ def usage():
 d1 = Deck()
 count = 0
 
-DELETEME = 1
-
 usage()
 
 exit = False
@@ -57,7 +55,7 @@ while not exit:
 	print "The coount is: {0}".format(count)
 
 	d1.remove(card)
-	print d1
+#	print d1
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
 		exit = True
