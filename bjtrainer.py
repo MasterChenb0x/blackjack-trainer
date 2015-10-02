@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
+# Import the universe, or at least what is needed
 import sys
 import random
 
+# Initialize the deck of cards
 def Deck():
 	cards = [
 	'2','2','2','2',
@@ -21,6 +23,7 @@ def Deck():
 	]
 	return cards
 
+# Return the count status of the card passed through the method
 def counter(card):
 	c = -1
 	try:
@@ -34,28 +37,33 @@ def counter(card):
 			c = -1
 	return c
 
+# Tell the users what this is an dhow to use
 def usage():
 	print "Welcome to the BlackJack Trainer (Super Alpha)\n\n"
 
+# More initialization
 d1 = Deck()
 count = 0
-
-usage()
-
 exit = False
+
+
 while not exit:
 	try:
-		card = d1[random.randint(0,len(d1)-1)]
+		card1 = d1[random.randint(0,len(d1)-1)]
+		card2 = d1[random.randint(0,len(d1)-1)]
+		d1.remove(card1)
+		d1.remove(card2)
 	except ValueError:
 		d1 = Deck()
-		card = d1[random.randint(0,len(d1)-1)]
-	print "Your card: {0}".format(card)
-	
-	count = count + counter(card)
+		card1 = d1[random.randint(0,len(d1)-1)]
+		d1.remove(card1)
+		card2 = d1[random.randint(0,len(d1)-1)]
+		d1.remove(card2)
+	count = count + counter(card1)
+	count = count + counter(card2)
+	print "Your hand: {0},{1}".format(card1, card2)
 	print "The coount is: {0}".format(count)
-
-	d1.remove(card)
-#	print d1
+	print d1
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
 		exit = True
