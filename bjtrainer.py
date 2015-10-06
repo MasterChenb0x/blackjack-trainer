@@ -43,29 +43,32 @@ def usage():
 
 # More initialization
 d1 = Deck()
+d2 = Deck()
+fulldeck = d1 + d2
+print fulldeck
 count = 0
 exit = False
 
-
 while not exit:
 	try:
-		card1 = d1[random.randint(0,len(d1)-1)]
-		card2 = d1[random.randint(0,len(d1)-1)]
-		d1.remove(card1)
-		d1.remove(card2)
+		card1 = fulldeck[random.randint(0,len(fulldeck)-1)]
+		card2 = fulldeck[random.randint(0,len(fulldeck)-1)]
+		fulldeck.remove(card1)
+		fulldeck.remove(card2)
 	except ValueError:
 		d1 = Deck()
-		card1 = d1[random.randint(0,len(d1)-1)]
-		d1.remove(card1)
-		card2 = d1[random.randint(0,len(d1)-1)]
-		d1.remove(card2)
+		d2 = Deck()
+		fulldeck = d1 + d2
+		card1 = fulldeck[random.randint(0,len(fulldeck)-1)]
+		fulldeck.remove(card1)
+		card2 = fulldeck[random.randint(0,len(fulldeck)-1)]
+		fulldeck.remove(card2)
 	count = count + counter(card1)
 	count = count + counter(card2)
 	print "Your hand: {0},{1}".format(card1, card2)
 	print "The coount is: {0}".format(count)
-	print d1
+	print fulldeck
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
 		exit = True
-
 
