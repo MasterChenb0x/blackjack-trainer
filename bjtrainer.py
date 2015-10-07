@@ -37,17 +37,17 @@ def counter(card):
 			c = -1
 	return c
 
-# Tell the users what this is an dhow to use
+# Tell the users what this is and how to use
 def usage():
 	print "Welcome to the BlackJack Trainer (Super Alpha)\n\n"
 
 # Deck selection
 def deckselect():
-	d = 0
-	print d
+	dint = input("How Many decks will we use? (1,2, or 6)")
+	d = int(dint)
 	while d not in [1,2,6]:
-		d = input("How many decks are we playing with? (1, 2, or 6)")
-		d = int(d)
+		dint = input("How many decks will we use? (1, 2, or 6)")
+		d = int(dint)
 		if d == 1:
 			print "Single Deck.\n"
 			d = 1
@@ -62,13 +62,11 @@ def deckselect():
 			return d
 		else:
 			print "You didn't choose a proper deck size."
-			d = 0
 	return d
 
 # More initialization
 fulldeck = []
 decks = deckselect()
-print decks
 while decks > 0:
 	tmp = Deck()
 	fulldeck = fulldeck + tmp
@@ -88,7 +86,6 @@ while not exit:
 		count = 0
 		fulldeck = []
 		decks = deckselect()
-		print decks
 		while decks > 0:
         		tmp = Deck()
         		fulldeck = fulldeck + tmp
