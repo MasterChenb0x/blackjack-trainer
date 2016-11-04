@@ -12,6 +12,7 @@ by MasterChen @chenb0x
 
 ###11/04/2016
 Revisited code and tried to condense. Still working on it. Fixed most major breaks, but will need to clean that up a bit too with Exception handlers.
+Separated setup functions for better organization. Setup is now in bjsetup.py
 
 
 ###10/07/2015
