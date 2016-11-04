@@ -11,8 +11,13 @@ by MasterChen @chenb0x
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
 ###11/04/2016
-Revisited code and tried to condense. Still working on it. Fixed most major breaks, but will need to clean that up a bit too with Exception handlers.
+Revisited code and tried to condense. Still working on it. 
+Fixed most major breaks, but will need to clean that up a bit too with Exception handlers.
 Separated setup functions for better organization. Setup is now in bjsetup.py
+Added ace card handling and printed a total sum.
+
+######To Do
+1. Add Hit/Stand/Split functionality
 
 
 ###10/07/2015

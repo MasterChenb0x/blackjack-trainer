@@ -18,6 +18,20 @@ def counter(card):
 		if card in [10,'J','Q','K','A']:
 			c = -1
 	return c
+#Convert face cards to their integer value
+def faceSum(card):
+	sum = 0
+	if card in ['J','Q','K']:
+		sum = 10
+	elif card == 'A':
+        	aceCard = raw_input("Do you want your card to be 1 or 11?")
+                if aceCard == '1':
+                	sum = 1
+                else:
+                        sum = 11
+	else:
+		sum = int(card)
+	return sum
 
 # Tell the users what this is and how to use
 def usage():
@@ -35,12 +49,18 @@ fulldeck = []
 fulldeck = Deck() * deckselect()
 print fulldeck
 count = 0
+total = 0
 
 play = 1
 while play == 1:
 	try:
 		card1 = deal()
 		card2 = deal()
+		count = count + counter(card1)
+        	count = count + counter(card2)
+		card1 = faceSum(card1)
+		card2 = faceSum(card2)
+		total = int(card1) + int(card2)
 	except ValueError:
 		fulldeck = []
 		fulldeck = Deck() * deckselect()
@@ -48,10 +68,14 @@ while play == 1:
 		count = 0
 		card1 = deal()
 		card2 = deal()
-	count = count + counter(card1)
-	count = count + counter(card2)
+		count = count + counter(card1)
+        	count = count + counter(card2)
+		card1 = faceSum(card1)
+		card2 = faceSum(card2)
+		total = int(card1) + int(card2)
 	print "Your hand: {0},{1}".format(card1, card2)
-	print "The coount is: {0}".format(count)
+	print "The total is: {0}".format(total)
+	print "The count is: {0}".format(count)
 	print fulldeck
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
