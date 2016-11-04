@@ -25,7 +25,8 @@ def counter(card):
 
 # Tell the users what this is and how to use
 def usage():
-	print "Welcome to the BlackJack Trainer (Super Alpha)\n\n"
+	print "Welcome to the BlackJack Trainer (Super Alpha)"
+	print "Hopefully this doesn't break while you are playing."
 
 # Deck selection
 def deckselect():
@@ -56,21 +57,22 @@ def deal():
 	return card
 
 # More initialization
+usage()
 fulldeck = []
 fulldeck = Deck() * deckselect()
 print fulldeck
-
 count = 0
 
-while True:
+play = 1
+while play == 1:
 	try:
 		card1 = deal()
 		card2 = deal()
 	except ValueError:
-		count = 0
 		fulldeck = []
 		fulldeck = Deck() * deckselect()
 		print fulldeck
+		count = 0
 		card1 = deal()
 		card2 = deal()
 	count = count + counter(card1)
@@ -80,5 +82,5 @@ while True:
 	print fulldeck
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
-		break
+		play = 0
 

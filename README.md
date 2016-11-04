@@ -10,8 +10,11 @@ by MasterChen @chenb0x
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
+###11/04/2016
+Revisited code and tried to condense. Still working on it. Fixed most major breaks, but will need to clean that up a bit too with Exception handlers.
 
-### To Do Items 10/07/2015
+
+###10/07/2015
 Latest code condensation was borrowed from @DavidEGrayson (thank you, sir)
 
 1. Single, Double, and Six deck trials
