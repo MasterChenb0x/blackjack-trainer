@@ -10,6 +10,9 @@ by MasterChen @chenb0x
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
+###11/05/2016
+Moved the ace checker so the user can know the had before decidibg on 1 or 11.
+
 ###11/04/2016
 Revisited code and tried to condense. Still working on it. 
 Fixed most major breaks, but will need to clean that up a bit too with Exception handlers.
