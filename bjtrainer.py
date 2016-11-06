@@ -34,6 +34,16 @@ def faceSum(card):
 		sum = int(card)
 	return sum
 
+#Hit or Stand function
+def HitStand():
+	hitstand = raw_input("Hit or Stand?")
+        while hitstand == "Hit":
+        	card3 = deal()
+                count = count + counter(card3)
+               	card3 = faceSum(card3)
+                total = total + int(card3)
+                hitstand = "Stand"
+
 # Tell the users what this is and how to use
 def usage():
 	print "Welcome to the BlackJack Trainer (Super Alpha)"
@@ -66,13 +76,14 @@ while play == 1:
 		total = int(card1) + int(card2)
 		print "The total is: {0}".format(total)
 		if total < 21:
-			HitStand = raw_input("Hit or Stand?")
-			while HitStand == "Hit":
-				card3 = deal()
-				count = count + counter(card3)
-				card3 = faceSum(card3)
-				total = total + int(card3)
-				HitStand = "Stand"
+			hitstand = raw_input("Hit or Stand?")
+                        while hitstand == "Hit":
+                                card3 = deal()
+                                count = count + counter(card3)
+                                card3 = faceSum(card3)
+                                total = total + int( card3)
+                                hitstand = "Stand"
+
 	except ValueError:
 		# I should be able to put an initialization function here, but it broke last time I attempted.
 		fulldeck = []
@@ -89,13 +100,14 @@ while play == 1:
 		total = int(card1) + int(card2)
 		print "The total is: {0}".format(total)
                 if total < 21:
-                        HitStand = raw_input("Hit or Stand?")
-                        while HitStand == "Hit":
+                        hitstand = raw_input("Hit or Stand?")
+                        while hitstand == "Hit":
                                 card3 = deal()
-				count = count + counter(card3)
-				card3 = faceSum(card3)
+                                count = count + counter(card3)
+                                card3 = faceSum(card3)
                                 total = total + int( card3)
-				HitStand = "Stand"
+                                hitstand = "Stand"
+
 	print "The total is: {0}".format(total)
 	print "The count is: {0}".format(count)
 	print fulldeck
