@@ -18,7 +18,8 @@ def counter(card):
 		if card in [10,'J','Q','K','A']:
 			c = -1
 	return c
-#Convert face cards to their integer value
+
+# Convert face cards to their integer value
 def faceSum(card):
 	sum = 0
 	if card in ['J','Q','K']:
@@ -37,6 +38,7 @@ def faceSum(card):
 def usage():
 	print "Welcome to the BlackJack Trainer (Super Alpha)"
 	print "Hopefully this doesn't break while you are playing."
+
 
 def deal():
 	card = fulldeck[random.randint(0,len(fulldeck)-1)]
@@ -62,7 +64,17 @@ while play == 1:
 		card1 = faceSum(card1)
 		card2 = faceSum(card2)
 		total = int(card1) + int(card2)
+		print "The total is: {0}".format(total)
+		if total < 21:
+			HitStand = raw_input("Hit or Stand?")
+			while HitStand == "Hit":
+				card3 = deal()
+				count = count + counter(card3)
+				card3 = faceSum(card3)
+				total = total + int(card3)
+				HitStand = "Stand"
 	except ValueError:
+		# I should be able to put an initialization function here, but it broke last time I attempted.
 		fulldeck = []
 		fulldeck = Deck() * deckselect()
 		print fulldeck
@@ -75,6 +87,15 @@ while play == 1:
 		card1 = faceSum(card1)
 		card2 = faceSum(card2)
 		total = int(card1) + int(card2)
+		print "The total is: {0}".format(total)
+                if total < 21:
+                        HitStand = raw_input("Hit or Stand?")
+                        while HitStand == "Hit":
+                                card3 = deal()
+				count = count + counter(card3)
+				card3 = faceSum(card3)
+                                total = total + int( card3)
+				HitStand = "Stand"
 	print "The total is: {0}".format(total)
 	print "The count is: {0}".format(count)
 	print fulldeck
