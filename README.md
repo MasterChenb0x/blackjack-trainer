@@ -13,6 +13,7 @@ by MasterChen @chenb0x
 ###11/06/2016
 Started working on the Hit or Stand functionality, but there is a lot of work to be done. The program, so far, can add one more card when a "Hit" is requested.
 This brings us to adding parameters when a "Bust" happens.
+Changed card variables into an array for better organization and manipulation.
 
 ###11/05/2016
 Moved the ace checker so the user can know the had before decidibg on 1 or 11.

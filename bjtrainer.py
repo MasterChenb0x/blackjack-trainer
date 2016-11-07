@@ -57,55 +57,62 @@ def deal():
 
 # More initialization
 usage()
+PlayerHand = [0,0,0,0,0]
+ph = 0
 fulldeck = []
 fulldeck = Deck() * deckselect()
 print fulldeck
 count = 0
 total = 0
+card = 0
 
 play = 1
 while play == 1:
 	try:
-		card1 = deal()
-		card2 = deal()
-		count = count + counter(card1)
-        	count = count + counter(card2)
-		print "Your hand: {0},{1}".format(card1, card2)
-		card1 = faceSum(card1)
-		card2 = faceSum(card2)
-		total = int(card1) + int(card2)
+		PlayerHand[0] = deal()
+		PlayerHand[1] = deal()
+		count = count + counter(PlayerHand[0])
+        	count = count + counter(PlayerHand[1])
+		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
+		PlayerHand[0] = faceSum(PlayerHand[0])
+		PlayerHand[1] = faceSum(PlayerHand[1])
+		total = int(PlayerHand[0]) + int(PlayerHand[1])
 		print "The total is: {0}".format(total)
 		if total < 21:
 			hitstand = raw_input("Hit or Stand?")
                         while hitstand == "Hit":
-                                card3 = deal()
-                                count = count + counter(card3)
-                                card3 = faceSum(card3)
-                                total = total + int( card3)
+                                PlayerHand[2] = deal()
+				print PlayerHand[2]
+                                count = count + counter(PlayerHand[2])
+                                PlayerHand[2] = faceSum(PlayerHand[2])
+                                total = total + int(PlayerHand[2])
                                 hitstand = "Stand"
 
 	except ValueError:
 		# I should be able to put an initialization function here, but it broke last time I attempted.
+		PlayerHand = [0,0,0,0,0]
+		ph = 0
 		fulldeck = []
 		fulldeck = Deck() * deckselect()
 		print fulldeck
 		count = 0
-		card1 = deal()
-		card2 = deal()
-		count = count + counter(card1)
-        	count = count + counter(card2)
-		print "Your hand: {0},{1}".format(card1, card2)
-		card1 = faceSum(card1)
-		card2 = faceSum(card2)
-		total = int(card1) + int(card2)
+		PlayerHand[0] = deal()
+		PlayerHand[1] = deal()
+		count = count + counter(PlayerHand[0])
+        	count = count + counter(PlayerHand[1])
+		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
+		PlayerHand[0] = faceSum(PlayerHand[0])
+		PlayerHand[1] = faceSum(PlayerHand[1])
+		total = int(PlayerHand[0]) + int(PlayerHand[1])
 		print "The total is: {0}".format(total)
                 if total < 21:
                         hitstand = raw_input("Hit or Stand?")
                         while hitstand == "Hit":
-                                card3 = deal()
-                                count = count + counter(card3)
-                                card3 = faceSum(card3)
-                                total = total + int( card3)
+                                PlayerHand[2] = deal()
+				print PlayerHand[2]
+                                count = count + counter(PlayerHand[2])
+                                PlayerHand[2] = faceSum(PlayerHand[2])
+                                total = total + int(PlayerHand[2])
                                 hitstand = "Stand"
 
 	print "The total is: {0}".format(total)
