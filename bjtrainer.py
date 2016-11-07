@@ -74,6 +74,7 @@ while play == 1:
 		count = count + counter(PlayerHand[0])
         	count = count + counter(PlayerHand[1])
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
+		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
 		PlayerHand[1] = faceSum(PlayerHand[1])
 		total = int(PlayerHand[0]) + int(PlayerHand[1])
@@ -84,6 +85,7 @@ while play == 1:
                                 PlayerHand[2] = deal()
 				print PlayerHand[2]
                                 count = count + counter(PlayerHand[2])
+				print "The count is: {0}".format(count)
                                 PlayerHand[2] = faceSum(PlayerHand[2])
                                 total = total + int(PlayerHand[2])
                                 hitstand = "Stand"
@@ -101,6 +103,7 @@ while play == 1:
 		count = count + counter(PlayerHand[0])
         	count = count + counter(PlayerHand[1])
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
+		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
 		PlayerHand[1] = faceSum(PlayerHand[1])
 		total = int(PlayerHand[0]) + int(PlayerHand[1])
@@ -111,6 +114,7 @@ while play == 1:
                                 PlayerHand[2] = deal()
 				print PlayerHand[2]
                                 count = count + counter(PlayerHand[2])
+				print "The count is: {0}".format(count)
                                 PlayerHand[2] = faceSum(PlayerHand[2])
                                 total = total + int(PlayerHand[2])
                                 hitstand = "Stand"
