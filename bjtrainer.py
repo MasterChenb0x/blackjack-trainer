@@ -56,16 +56,22 @@ def deal():
 	return card
 
 # More initialization
-usage()
-PlayerHand = [0,0,0,0,0]
-ph = 0
-fulldeck = []
-fulldeck = Deck() * deckselect()
-print fulldeck
-count = 0
-total = 0
-card = 0
+def initialization():
+	global PlayerHand
+	PlayerHand = [0,0,0,0,0]
+	global fulldeck
+	fulldeck = []
+	fulldeck = Deck() * deckselect()
+	print fulldeck
+	global count
+	count = 0
+	global total
+	total = 0
+	global card
+	card = 0
 
+# Start of main game
+initialization()
 play = 1
 while play == 1:
 	try:
@@ -91,13 +97,8 @@ while play == 1:
                                 hitstand = "Stand"
 
 	except ValueError:
-		# I should be able to put an initialization function here, but it broke last time I attempted.
-		PlayerHand = [0,0,0,0,0]
-		ph = 0
-		fulldeck = []
-		fulldeck = Deck() * deckselect()
-		print fulldeck
-		count = 0
+		# The ValueError Exception is a shuffle of the deck essentially.
+		initialization()
 		PlayerHand[0] = deal()
 		PlayerHand[1] = deal()
 		count = count + counter(PlayerHand[0])

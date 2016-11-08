@@ -10,6 +10,9 @@ by MasterChen @chenb0x
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
+###11/07/2016
+Created an initialization function to maybe save a few lines of code? Declared variables in function as globals which seemed to resolve the initialization breakage before. 
+
 ###11/06/2016
 Started working on the Hit or Stand functionality, but there is a lot of work to be done. The program, so far, can add one more card when a "Hit" is requested.
 This brings us to adding parameters when a "Bust" happens.
