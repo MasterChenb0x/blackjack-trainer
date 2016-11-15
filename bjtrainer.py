@@ -69,6 +69,8 @@ def initialization():
 	total = 0
 	global card
 	card = 0
+	global i
+	i = 0
 
 # Start of main game
 initialization()
@@ -77,8 +79,8 @@ while play == 1:
 	try:
 		PlayerHand[0] = deal()
 		PlayerHand[1] = deal()
-		count = count + counter(PlayerHand[0])
-        	count = count + counter(PlayerHand[1])
+		count += counter(PlayerHand[0])
+        	count += counter(PlayerHand[1])
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
 		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
@@ -90,10 +92,10 @@ while play == 1:
                         while hitstand == "Hit":
                                 PlayerHand[2] = deal()
 				print PlayerHand[2]
-                                count = count + counter(PlayerHand[2])
+                                count += counter(PlayerHand[2])
 				print "The count is: {0}".format(count)
                                 PlayerHand[2] = faceSum(PlayerHand[2])
-                                total = total + int(PlayerHand[2])
+                                total += int(PlayerHand[2])
                                 hitstand = "Stand"
 
 	except ValueError:
@@ -101,8 +103,8 @@ while play == 1:
 		initialization()
 		PlayerHand[0] = deal()
 		PlayerHand[1] = deal()
-		count = count + counter(PlayerHand[0])
-        	count = count + counter(PlayerHand[1])
+		count += counter(PlayerHand[0])
+        	count += counter(PlayerHand[1])
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
 		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
@@ -117,7 +119,7 @@ while play == 1:
                                 count = count + counter(PlayerHand[2])
 				print "The count is: {0}".format(count)
                                 PlayerHand[2] = faceSum(PlayerHand[2])
-                                total = total + int(PlayerHand[2])
+                                total += int(PlayerHand[2])
                                 hitstand = "Stand"
 
 	print "The total is: {0}".format(total)
