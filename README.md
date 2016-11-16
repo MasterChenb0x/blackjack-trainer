@@ -10,6 +10,10 @@ by MasterChen @chenb0x
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
+###11/15/2016
+Added a way to increment the PLayerHand array. Not much use now, but will help when the player wants to hit more than once. With taht said, the next step is to change the "if total < 21" clause to a loop...without breaking anything...
+Should also handle a "Bust" scenario in the near future.
+
 ###11/07/2016
 Created an initialization function to maybe save a few lines of code? Declared variables in function as globals which seemed to resolve the initialization breakage before. 
 
