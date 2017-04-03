@@ -34,15 +34,6 @@ def faceSum(card):
 		sum = int(card)
 	return sum
 
-#Hit or Stand function
-def HitStand():
-	hitstand = raw_input("Hit or Stand?")
-        while hitstand == "Hit":
-        	card3 = deal()
-                count = count + counter(card3)
-               	card3 = faceSum(card3)
-                total = total + int(card3)
-                hitstand = "Stand"
 
 # Tell the users what this is and how to use
 def usage():
@@ -54,6 +45,12 @@ def deal():
 	card = fulldeck[random.randint(0,len(fulldeck)-1)]
         fulldeck.remove(card)
 	return card
+
+def newhand():
+	global PlayerHand
+	PlayerHand = [0,0,0,0,0]
+	global i
+	i = 0
 
 # More initialization
 def initialization():
@@ -69,19 +66,20 @@ def initialization():
 	total = 0
 	global card
 	card = 0
+	global i
+	i = 0
 
 # Start of main game
+play = "1"
 initialization()
-play = 1
-while play == 1:
-	i = 0 #There is not much use for incrementing i at the moment, but we are setting up for hitting the deck more than once should the hand still be under 21.
+while play == "1":
+	newhand()
 	try:
 		PlayerHand[i] = deal()
 		count += counter(PlayerHand[i])
 		i += 1
 		PlayerHand[i] = deal()
 		count += counter(PlayerHand[i])
-		i += 1
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
 		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
@@ -89,16 +87,17 @@ while play == 1:
 		total = int(PlayerHand[0]) + int(PlayerHand[1])
 		print "The total is: {0}".format(total)
 		if total < 21:
-			hitstand = raw_input("Hit or Stand?")
-                        while hitstand == "Hit":
+			hitstand = raw_input("Hit(1) or Stand(2)?")
+                        while hitstand == "1":
+				i += 1
                                 PlayerHand[i] = deal()
 				print PlayerHand[i]
                                 count += counter(PlayerHand[i])
-				i += 1
 				print "The count is: {0}".format(count)
-                                PlayerHand[2] = faceSum(PlayerHand[2])
-                                total += int(PlayerHand[2])
-                                hitstand = "Stand"
+                                PlayerHand[i] = faceSum(PlayerHand[i])
+                                total += int(PlayerHand[i])
+				print "The total is: {0}".format(total)
+                                hitstand = raw_input("Hit(1) or Stand(2)?")
 
 	except ValueError:
 		# The ValueError Exception is a shuffle of the deck essentially.
@@ -108,7 +107,6 @@ while play == 1:
 		i += 1
 		PlayerHand[i] = deal()
 		count += counter(PlayerHand[i])
-		i += 1
 		print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
 		print "The count is: {0}".format(count)
 		PlayerHand[0] = faceSum(PlayerHand[0])
@@ -116,21 +114,21 @@ while play == 1:
 		total = int(PlayerHand[0]) + int(PlayerHand[1])
 		print "The total is: {0}".format(total)
                 if total < 21:
-                        hitstand = raw_input("Hit or Stand?")
-                        while hitstand == "Hit":
+                        hitstand = raw_input("Hit(1) or Stand(2)?")
+                        while hitstand == "1":
+				i += 1
                                 PlayerHand[i] = deal()
 				print PlayerHand[i]
                                 count += counter(PlayerHand[i])
-				i += 1
 				print "The count is: {0}".format(count)
-                                PlayerHand[2] = faceSum(PlayerHand[2])
-                                total += int(PlayerHand[2])
-                                hitstand = "Stand"
+                                PlayerHand[i] = faceSum(PlayerHand[i])
+                                total += int(PlayerHand[i])
+				print "The total is: {0}".format(total)
+                                hitstand = raw_input("Hit(1) or Stand(2)?")
 
 	print "The total is: {0}".format(total)
 	print "The count is: {0}".format(count)
 	print fulldeck
-	response = raw_input("Deal?(y/n)")
-	if response == "n":
-		play = 0
+	play = raw_input("Deal? Yes(1)/No(2)")
+	
 

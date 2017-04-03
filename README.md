@@ -10,6 +10,12 @@ by MasterChen @chenb0x
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
 
+###04/03/2017
+Changed how a player indicates Hit/Stand, and Deal/NoDeal.
+Fully implemented the PlayerHand array/list during the game.
+
+Need to work on ending game when player "busts".
+
 ###11/15/2016
 Added a way to increment the PLayerHand array. Not much use now, but will help when the player wants to hit more than once. With taht said, the next step is to change the "if total < 21" clause to a loop...without breaking anything...
 Should also handle a "Bust" scenario in the near future.
