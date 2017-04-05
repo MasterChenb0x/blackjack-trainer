@@ -12,11 +12,17 @@ def deal():
         fulldeck.remove(card)
 	return card
 
-def newhand():
+def newplayerhand():
 	global PlayerHand
 	PlayerHand = [0,0,0,0,0,0,0]
-	global i
-	i = 0
+	global ph
+	ph = 0
+
+def newdealerhand():
+	global DealerHand
+	DealerHand = {0,0,0,0,0,0,0]
+	global dh
+	dh = 0
 
 def initialization():
         global PlayerHand
@@ -31,8 +37,8 @@ def initialization():
         total = 0
         global card
         card = 0
-        global i
-        i = 0
+        global ph
+        ph = 0
         print "The deck is now shuffled"
 
 
@@ -41,13 +47,13 @@ usage()
 play = "1"
 initialization()
 while play == "1":
-	newhand()
+	newplayerhand()
 	try:
-		PlayerHand[i] = deal()
-        	count += counter(PlayerHand[i])
-        	i += 1
-        	PlayerHand[i] = deal()
-        	count += counter(PlayerHand[i])
+		PlayerHand[ph] = deal()
+        	count += counter(PlayerHand[ph])
+        	ph += 1
+        	PlayerHand[ph] = deal()
+        	count += counter(PlayerHand[ph])
         	print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
         	print "The count is: {0}".format(count)
         	PlayerHand[0] = faceSum(PlayerHand[0])
@@ -57,13 +63,13 @@ while play == "1":
         	if total <= 21:
                 	hitstand = raw_input("Hit(1) or Stand(2)?")
                 	while hitstand == "1":
-                        	i += 1
-                        	PlayerHand[i] = deal()
-                        	print PlayerHand[i]
-                        	count += counter(PlayerHand[i])
+                        	ph += 1
+                        	PlayerHand[ph] = deal()
+                        	print PlayerHand[ph]
+                        	count += counter(PlayerHand[ph])
                         	print "The count is: {0}".format(count)
-                        	PlayerHand[i] = faceSum(PlayerHand[i])
-                        	total += int(PlayerHand[i])
+                        	PlayerHand[ph] = faceSum(PlayerHand[ph])
+                        	total += int(PlayerHand[ph])
                         	print "The total is: {0}".format(total)
 				if total > 22:
 					print "You BUSTED and you lose."
@@ -74,11 +80,11 @@ while play == "1":
 	except ValueError:
 		# The ValueError Exception is a shuffle of the deck essentially.
 		initialization()
-		PlayerHand[i] = deal()
-        	count += counter(PlayerHand[i])
-        	i += 1
-        	PlayerHand[i] = deal()
-        	count += counter(PlayerHand[i])
+		PlayerHand[ph] = deal()
+        	count += counter(PlayerHand[ph])
+        	ph += 1
+        	PlayerHand[ph] = deal()
+        	count += counter(PlayerHand[ph])
         	print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
         	print "The count is: {0}".format(count)
         	PlayerHand[0] = faceSum(PlayerHand[0])
@@ -88,13 +94,13 @@ while play == "1":
         	if total <= 21:
                 	hitstand = raw_input("Hit(1) or Stand(2)?")
                 	while hitstand == "1":
-                        	i += 1
-                        	PlayerHand[i] = deal()
-                        	print PlayerHand[i]
-                        	count += counter(PlayerHand[i])
+                        	ph += 1
+                        	PlayerHand[ph] = deal()
+                        	print PlayerHand[ph]
+                        	count += counter(PlayerHand[ph])
                         	print "The count is: {0}".format(count)
-                        	PlayerHand[i] = faceSum(PlayerHand[i])
-                        	total += int(PlayerHand[i])
+                        	PlayerHand[ph] = faceSum(PlayerHand[ph])
+                        	total += int(PlayerHand[ph])
                         	print "The total is: {0}".format(total)
 				if total > 21:
                                         print "You BUSTED and you lose."
