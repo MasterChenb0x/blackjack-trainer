@@ -4,41 +4,7 @@
 import sys
 import random
 from bjsetup import *
-
-# Return the count status of the card passed through the method
-def counter(card):
-	c = -1
-	try:
-		thisCard = int(card)
-		if thisCard <= 6:
-			c = 1
-		elif thisCard <= 9:
-			c = 0
-	except:
-		if card in [10,'J','Q','K','A']:
-			c = -1
-	return c
-
-# Convert face cards to their integer value
-def faceSum(card):
-	sum = 0
-	if card in ['J','Q','K']:
-		sum = 10
-	elif card == 'A':
-        	aceCard = raw_input("Do you want your card to be 1 or 11?")
-                if aceCard == '1':
-                	sum = 1
-                else:
-                        sum = 11
-	else:
-		sum = int(card)
-	return sum
-
-
-# Tell the users what this is and how to use
-def usage():
-	print "Welcome to the BlackJack Trainer (Super Alpha)"
-	print "Hopefully this doesn't break while you are playing."
+from bjfunctions import *
 
 
 def deal():
@@ -52,25 +18,26 @@ def newhand():
 	global i
 	i = 0
 
-# More initialization
 def initialization():
-	global PlayerHand
-	PlayerHand = [0,0,0,0,0,0,0]
-	global fulldeck
-	fulldeck = []
-	fulldeck = Deck() * deckselect()
-	print fulldeck
-	global count
-	count = 0
-	global total
-	total = 0
-	global card
-	card = 0
-	global i
-	i = 0
-	print "The deck is now shuffled"
+        global PlayerHand
+        PlayerHand = [0,0,0,0,0,0,0]
+        global fulldeck
+        fulldeck = []
+        fulldeck = Deck() * deckselect()
+        print fulldeck
+        global count
+        count = 0
+        global total
+        total = 0
+        global card
+        card = 0
+        global i
+        i = 0
+        print "The deck is now shuffled"
+
 
 # Start of main game
+usage()
 play = "1"
 initialization()
 while play == "1":
@@ -98,7 +65,7 @@ while play == "1":
                         	PlayerHand[i] = faceSum(PlayerHand[i])
                         	total += int(PlayerHand[i])
                         	print "The total is: {0}".format(total)
-				if total > 21:
+				if total > 22:
 					print "You BUSTED and you lose."
 					hitstand = "2"
 				else:

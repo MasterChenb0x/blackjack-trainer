@@ -30,6 +30,11 @@ def deckselect():
                         print "You didn't choose a proper deck size."
         return d
 
+
 if __name__ == "__main__":
 	print "This file does nothing on its own..."
 	sys.exit()
+
+def usage():
+        print "Welcome to the BlackJack Trainer (Super Alpha)"
+        print "Hopefully this doesn't break while you are playing."
