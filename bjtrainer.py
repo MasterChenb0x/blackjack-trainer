@@ -20,34 +20,26 @@ def newplayerhand():
 
 def newdealerhand():
 	global DealerHand
-	DealerHand = {0,0,0,0,0,0,0]
+	DealerHand = [0,0,0,0,0,0,0]
 	global dh
 	dh = 0
 
-def initialization():
-        global PlayerHand
-        PlayerHand = [0,0,0,0,0,0,0]
-        global fulldeck
-        fulldeck = []
-        fulldeck = Deck() * deckselect()
-        print fulldeck
-        global count
-        count = 0
-        global total
-        total = 0
-        global card
-        card = 0
-        global ph
-        ph = 0
-        print "The deck is now shuffled"
 
+fulldeck = []
+fulldeck = Deck() * deckselect()
+print fulldeck
+count = 0
+total = 0
+card = 0
+ph = 0
+print "The deck is now shuffled"
 
 # Start of main game
 usage()
 play = "1"
-initialization()
 while play == "1":
 	newplayerhand()
+	newdealerhand()
 	try:
 		PlayerHand[ph] = deal()
         	count += counter(PlayerHand[ph])
@@ -79,7 +71,14 @@ while play == "1":
 				
 	except ValueError:
 		# The ValueError Exception is a shuffle of the deck essentially.
-		initialization()
+		fulldeck = []
+		fulldeck = Deck() * deckselect()
+		print fulldeck
+		count = 0
+		total = 0
+		card = 0
+		ph = 0
+		print "The deck is now shuffled"
 		PlayerHand[ph] = deal()
         	count += counter(PlayerHand[ph])
         	ph += 1
