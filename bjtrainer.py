@@ -44,6 +44,7 @@ while play == "1":
 		PlayerHand[ph] = deal()
         	count += counter(PlayerHand[ph])
         	ph += 1
+		# ! Below code to ValueError is functional if placed after "The deck is now shuffled", just in case it needs to be placed back there again.
         	PlayerHand[ph] = deal()
         	count += counter(PlayerHand[ph])
         	print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
@@ -79,33 +80,6 @@ while play == "1":
 		card = 0
 		ph = 0
 		print "The deck is now shuffled"
-		PlayerHand[ph] = deal()
-        	count += counter(PlayerHand[ph])
-        	ph += 1
-        	PlayerHand[ph] = deal()
-        	count += counter(PlayerHand[ph])
-        	print "Your hand: {0},{1}".format(PlayerHand[0], PlayerHand[1])
-        	print "The count is: {0}".format(count)
-        	PlayerHand[0] = faceSum(PlayerHand[0])
-        	PlayerHand[1] = faceSum(PlayerHand[1])
-        	total = int(PlayerHand[0]) + int(PlayerHand[1])
-        	print "The total is: {0}".format(total)
-        	if total <= 21:
-                	hitstand = raw_input("Hit(1) or Stand(2)?")
-                	while hitstand == "1":
-                        	ph += 1
-                        	PlayerHand[ph] = deal()
-                        	print PlayerHand[ph]
-                        	count += counter(PlayerHand[ph])
-                        	print "The count is: {0}".format(count)
-                        	PlayerHand[ph] = faceSum(PlayerHand[ph])
-                        	total += int(PlayerHand[ph])
-                        	print "The total is: {0}".format(total)
-				if total > 21:
-                                        print "You BUSTED and you lose."
-					hitstand = "2"
-                                else:
-                                        hitstand = raw_input("Hit(1) or Stand(2)?")
 	print "The total is: {0}".format(total)
 	print "The count is: {0}".format(count)
 	print fulldeck
