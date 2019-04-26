@@ -2,6 +2,7 @@ blackjack-trainer
 ==============
 
 by MasterChen @chenb0x
+and Sub-Lockdown
 ----------------------
 
 #### DISCLAIMER: It is NOT ILLEGAL to count cards on a table in Las Vegas, HOWEVER, it IS illegal to use an apparatus outside of your own mind (devices, etc) while at a table. Please use discretion and understand that this is a mental exercise.
@@ -10,6 +11,11 @@ by MasterChen @chenb0x
 ###### This is a BlackJack trainer. It trains the user on how to count cards using the High/Low or Revere(Plus/Minus) method of counting
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
+
+### 04/26/2019 - Sub
+Backed up all of the python2 code into a corresponding folder.
+Created Python3 version of a majority of the code, currently all in the file test.py.
+Added in automatic conversion of aces from 11 to 1, should the next drawn card cause you to bust.
 
 ### 04/04/2017
 Added a check for going over 21 (busting)
