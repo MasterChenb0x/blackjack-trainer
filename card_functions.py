@@ -6,7 +6,7 @@ import random
 
 # Variable Setup
 fulldeck = [] # empty deck list
-deck_size = 1
+deck_size = 0 # empty deck count
 player_hand = [] # empty player hand list
 ph_total = 0 #  initial player hand value
 dealer_hand = [] # empty dealer hand list
@@ -24,41 +24,37 @@ def deck_count():
     while True:
         decks = input("Would you like 1, 2, or 6 decks in the game:")
         if decks in ["1","2","6"]:
-            global deck_size
-            deck_size = int(decks)
             break
         else:
             print("Incorrect choice, please try again.")
-    return int(deck_size)
+    return int(decks)
 
 # Returns, and removes, the "top" card from the deck
-def deal(deck):
-    # this is where it causes issues, fulldeck is still = [] here
-    #card = fulldeck[0]
-    #fulldeck.remove(card)
-    card = deck[0]
-    return card
+def deal(fulldeck):
+    card = fulldeck[0]
+    fulldeck.remove(card)
+    return fulldeck, card
 
-# Resets the player hand variables [CURRENTLY NOT WORKING]
+# Resets the player hand variables
 def newplayerhand():
-    global player_hand
     player_hand = []
-    global ph_total
     ph_total = 0
+    return player_hand, ph_total
 
-# Resets the dealer hand variables [CURRENTLY NOT WORKING]
+# Resets the dealer hand variables
 def newdealerhand():
-    global dealer_hand
     dealer_hand = []
-    global dh_total
     dh_total = 0
+    return dealer_hand, dh_total
 
-# Runs the reset functions, and reinitializes the deck [CURRENTLY NOT WORKING]
-def new_game():
-    global fulldeck
-    fulldeck = Deck(deck_size)
-    newplayerhand()
-    newdealerhand()
+# Runs the reset functions, and reinitializes the deck
+def new_game(deck_size):
+    new_deck = Deck(deck_size)
+    player_hand = []
+    ph_total = 0
+    dealer_hand = []
+    dh_total = 0
+    return new_deck, player_hand, ph_total, dealer_hand, dh_total
 
 if __name__ == "__main__":
     print("This file contains basic card game functions.")
