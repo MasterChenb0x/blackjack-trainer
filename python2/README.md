@@ -2,7 +2,6 @@ blackjack-trainer
 ==============
 
 by MasterChen @chenb0x
-and Sub-Lockdown
 ----------------------
 
 #### DISCLAIMER: It is NOT ILLEGAL to count cards on a table in Las Vegas, HOWEVER, it IS illegal to use an apparatus outside of your own mind (devices, etc) while at a table. Please use discretion and understand that this is a mental exercise.
@@ -11,18 +10,6 @@ and Sub-Lockdown
 ###### This is a BlackJack trainer. It trains the user on how to count cards using the High/Low or Revere(Plus/Minus) method of counting
 
 ###### This is not designed for use at a Vegas table, but rather to prepare your mind before going to a table.
-
-### 05/02/2019 - Sub
-Seperated all of the working code into corresponding files (basic card features into card_functions and basic blackjack features into blk_jak_functions). 
-The game_over function sits in the main file, due to it needing to run a function from card_functions, yet referencing blackjack terms (busting). 
-Moving the functions required turning them all into pass throughs, and some may pass through more than needed. 
-Removed some of the testing prints.
-In it's current state, you can go through 1, 2, or 6 decks, with busting causing you to restart all over.  
-
-### 04/26/2019 - Sub
-Backed up all of the python2 code into a corresponding folder.
-Created Python3 version of a majority of the code, currently all in the file test.py.
-Added in automatic conversion of aces from 11 to 1, should the next drawn card cause you to bust.
 
 ### 04/04/2017
 Added a check for going over 21 (busting)
