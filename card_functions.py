@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 
 # We are an import and import company
 import sys
@@ -21,11 +21,10 @@ def Deck(decks):
 
 # Basic tests to check functions and flow
 def deck_count():
-    while True:
+    decks = ""
+    while decks not in ["1","2","6"]:
         decks = input("Would you like 1, 2, or 6 decks in the game:")
-        if decks in ["1","2","6"]:
-            break
-        else:
+        if decks not in ["1","2","6"]:
             print("Incorrect choice, please try again.")
     return int(decks)
 
