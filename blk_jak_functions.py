@@ -52,14 +52,15 @@ def ace_bust_check(ph_total, elevens):
 # Asks if you want to hit or stand
 def player_action(player_hand, ph_total, elevens):
     while True:
-        q = input("Hit (1) or Stand (2)")
-        if q == "1":
+        q = input("(H)it/(S)tand/(Q)uit?: ")
+        q = q.lower()
+        if q == "h":
             break
-        if q == "2":
+        if q == "s":
             player_hand = 0
             ph_total = 0
             elevens = 0
-        elif q == "Q":
+        elif q == "q":
             print("Exit through the gift shop")
             sys.exit()
     return player_hand, ph_total, elevens
