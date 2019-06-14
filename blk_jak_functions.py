@@ -4,19 +4,23 @@
 import sys
 
 # Variable Setup
-count = 0 # initial card count
-elevens = 0 # counter, for aces counting as 11 in hand
+count = 0  # initial card count
+elevens = 0  # counter, for aces counting as 11 in hand
 
 # Prints the player's current hand, the total value, and the running count
+
+
 def gui(cards, total, count):
     print(f"Player Hand: {cards}")
     print(f"Current card value: {total}")
     print(f"Current deck count: {count}")
-    
+
 # Convert face cards to their integer value, uses the current total to prevent aces from busting you
+
+
 def faceSum(card, total, elevens):
     card_sum = 0
-    if card in ['J','Q','K']:
+    if card in ['J', 'Q', 'K']:
         card_sum = 10
     elif card == 'A':
         if total + 11 > 21:
@@ -29,7 +33,9 @@ def faceSum(card, total, elevens):
     total += card_sum
     return total, elevens
 
-# Checks and modifies the running count, using the Hi-Lo System 
+# Checks and modifies the running count, using the Hi-Lo System
+
+
 def hilo_counter(card, count):
     try:
         thisCard = int(card)
@@ -38,11 +44,13 @@ def hilo_counter(card, count):
         elif thisCard <= 9:
             count += 0
     except:
-        if card in [10,'J','Q','K','A']:
+        if card in [10, 'J', 'Q', 'K', 'A']:
             count += -1
     return count
 
 # If ph_total is over 21, check to see if any aces in hand are 11s, and if so, switches it to a 1
+
+
 def ace_bust_check(ph_total, elevens):
     if elevens > 0:
         ph_total += -10
@@ -50,6 +58,8 @@ def ace_bust_check(ph_total, elevens):
     return ph_total, elevens
 
 # Asks if you want to hit or stand
+
+
 def player_action(player_hand, ph_total, elevens):
     while True:
         q = input("(H)it/(S)tand/(Q)uit?: ")
@@ -64,6 +74,7 @@ def player_action(player_hand, ph_total, elevens):
             print("Exit through the gift shop")
             sys.exit()
     return player_hand, ph_total, elevens
+
 
 # Message if run directly
 if __name__ == "__main__":
