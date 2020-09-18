@@ -106,3 +106,4 @@ venv.bak/
 # Misc
 *.txt
 *.bak
+dojo.py
