@@ -15,6 +15,7 @@ class Deck:
             self.cards[r]['num_val'] = int(r)
         if r in ['7', '8', '9']:
             self.cards[r]['count_val'] = 0
+            self.cards[r]['num_val'] = int(r)
         if r in ['10', 'jack', 'queen', 'king']:
             self.cards[r]['count_val'] = -1
             self.cards[r]['num_val'] = 10
@@ -22,6 +23,10 @@ class Deck:
             self.cards[r]['count_val'] = -1
             self.cards[r]['num_val'] = [1, 11]
 
+    def deal(self):
+        cards = list(self.cards.items())
+        return random.choice(cards)
 
 new_deck = Deck()
 print(new_deck.cards)
+print(new_deck.deal())
