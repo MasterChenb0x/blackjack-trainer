@@ -25,8 +25,18 @@ class Deck:
 
     def deal(self):
         cards = list(self.cards.items())
-        return random.choice(cards)
+        card = random.choice(cards)
+        suit = random.choice(card[1]['suits'])
+        card[1]['suits'].remove(suit)
+        return f'{card[0]} of {suit}'
 
 new_deck = Deck()
 print(new_deck.cards)
+print("-----")
 print(new_deck.deal())
+print(new_deck.deal())
+print(new_deck.deal())
+print(new_deck.deal())
+print(new_deck.deal())
+print("-----")
+print(new_deck.cards)
