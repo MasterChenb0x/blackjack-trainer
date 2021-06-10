@@ -3,12 +3,14 @@
 import random
 
 class Deck:
-    def __init__(self):
+    def __init__(self, decks=1):
+        self.decks = decks
+        self.count = 0
         self.cards = {}
         self.ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
 
         for r in self.ranks:
-            self.cards[r] = {'suits': ['diamonds', 'clubs', 'hearts', 'spades']
+            self.cards[r] = {'suits': ['diamonds', 'clubs', 'hearts', 'spades'] * self.decks
             }
             if r in ['2', '3', '4', '5', '6']:
                 self.cards[r]['count_val'] = 1
@@ -28,15 +30,24 @@ class Deck:
         card = random.choice(cards)
         suit = random.choice(card[1]['suits'])
         card[1]['suits'].remove(suit)
+        self.count += card[1]['count_val']
         return f'{card[0]} of {suit}'
+
+    def get_count(self):
+        return self.count
 
 new_deck = Deck()
 print(new_deck.cards)
 print("-----")
 print(new_deck.deal())
+print(new_deck.get_count())
 print(new_deck.deal())
+print(new_deck.get_count())
 print(new_deck.deal())
+print(new_deck.get_count())
 print(new_deck.deal())
+print(new_deck.get_count())
 print(new_deck.deal())
+print(new_deck.get_count())
 print("-----")
 print(new_deck.cards)
