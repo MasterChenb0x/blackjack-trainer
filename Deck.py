@@ -30,24 +30,13 @@ class Deck:
         card = random.choice(cards)
         suit = random.choice(card[1]['suits'])
         card[1]['suits'].remove(suit)
+        if card[1]['suits'] == []:
+            del self.cards[card[0]]
         self.count += card[1]['count_val']
         return f'{card[0]} of {suit}'
 
     def get_count(self):
         return self.count
 
-new_deck = Deck()
-print(new_deck.cards)
-print("-----")
-print(new_deck.deal())
-print(new_deck.get_count())
-print(new_deck.deal())
-print(new_deck.get_count())
-print(new_deck.deal())
-print(new_deck.get_count())
-print(new_deck.deal())
-print(new_deck.get_count())
-print(new_deck.deal())
-print(new_deck.get_count())
-print("-----")
-print(new_deck.cards)
+if __name__ == "__main__":
+    print("This is just a deck of cards")
