@@ -4,13 +4,19 @@ from Deck import Deck
 import time
 import random
 
-D1 = Deck()
+D1 = Deck(2)
+curr_count = 0
 
-while D1:
-    #This loop should only run while there are cards on the deck, but it still throws an IndexError instead of exiting the loop.
-    #The break statement works, but is it the best approsch?
+for t in range(1,random.randint(1,(52*2))):
     try:
         print(D1.deal())
-        time.sleep(2)
+        time.sleep(3)
     except IndexError:
         break
+
+curr_count = D1.get_count()
+check = int(input("What is the count? "))
+if curr_count == check:
+    print("Congrats!")
+else:
+    print("Try Harder")
