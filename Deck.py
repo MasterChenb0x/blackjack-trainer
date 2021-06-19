@@ -11,8 +11,8 @@ class Deck:
         self.last_card = {}
 
         for r in self.ranks:
-            self.cards[r] = {'suits': ['diamonds', 'clubs', 'hearts', 'spades'] * self.decks
-            }
+            self.cards[r] = {'suits': ['diamonds', 'clubs', 'hearts', 'spades'] * self.decks}
+            self.cards[r]['remaining'] = len(self.cards[r]['suits'])
             if r in ['2', '3', '4', '5', '6']:
                 self.cards[r]['count_val'] = 1
                 self.cards[r]['num_val'] = int(r)
@@ -31,6 +31,7 @@ class Deck:
         card = random.choice(cards)
         suit = random.choice(card[1]['suits'])
         card[1]['suits'].remove(suit)
+        card[1]['remaining'] -= 1
         if card[1]['suits'] == []:
             del self.cards[card[0]]
         self.count += card[1]['count_val']
@@ -45,4 +46,7 @@ if __name__ == "__main__":
     D1 = Deck()
     print(D1.cards)
     print(D1.deal())
+    print(D1.deal())
+    print(D1.deal())
     print(D1.last_card)
+    print(D1.cards)
