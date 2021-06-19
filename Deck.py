@@ -8,6 +8,7 @@ class Deck:
         self.count = 0
         self.cards = {}
         self.ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+        self.last_card = {}
 
         for r in self.ranks:
             self.cards[r] = {'suits': ['diamonds', 'clubs', 'hearts', 'spades'] * self.decks
@@ -33,10 +34,15 @@ class Deck:
         if card[1]['suits'] == []:
             del self.cards[card[0]]
         self.count += card[1]['count_val']
+        self.last_card = card
         return f'{card[0]} of {suit}'
 
-    def get_count(self):
+    def count_status(self):
         return self.count
 
 if __name__ == "__main__":
     print("This is just a deck of cards")
+    D1 = Deck()
+    print(D1.cards)
+    print(D1.deal())
+    print(D1.last_card)
