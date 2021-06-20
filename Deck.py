@@ -41,12 +41,18 @@ class Deck:
     def count_status(self):
         return self.count
 
+    def cards_status(self):
+        cards_left = 0
+        for c in self.cards:
+            cards_left += self.cards[c]['remaining']
+        return cards_left
+
 if __name__ == "__main__":
     print("This is just a deck of cards")
     D1 = Deck()
-    print(D1.cards)
     print(D1.deal())
     print(D1.deal())
     print(D1.deal())
-    print(D1.last_card)
-    print(D1.cards)
+    print(D1.deal())
+    print(D1.deal())
+    print(f'Cards left: {D1.cards_status()}')
