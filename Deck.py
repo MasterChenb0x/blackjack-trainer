@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import random
+import sys
 
 class Deck:
     def __init__(self, decks=1):
@@ -47,12 +48,11 @@ class Deck:
             cards_left += self.cards[c]['remaining']
         return cards_left
 
+    def rank_status(self, rank):
+        rank_count = 0
+        for c in self.cards:
+            rank_count += self.cards[c]['suits'].count(rank)
+        return rank_count
+
 if __name__ == "__main__":
-    print("This is just a deck of cards")
-    D1 = Deck()
-    print(D1.deal())
-    print(D1.deal())
-    print(D1.deal())
-    print(D1.deal())
-    print(D1.deal())
-    print(f'Cards left: {D1.cards_status()}')
+    sys.exit()
