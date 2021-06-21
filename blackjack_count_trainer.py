@@ -14,7 +14,7 @@ for t in range(1,random.randint(1,(52*2))):
     except IndexError:
         break
 
-curr_count = D1.get_count()
+curr_count = D1.count_status()
 check = int(input("What is the count? "))
 if curr_count == check:
     print("Congrats!")
