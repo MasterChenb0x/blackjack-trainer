@@ -53,8 +53,4 @@ class Deck:
         return rank_count
 
 if __name__ == "__main__":
-    D1 = Deck(1)
-    print(D1.deal())
-    print(D1.deal())
-    print(D1.cards_status())
     sys.exit()
