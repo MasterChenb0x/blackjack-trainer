@@ -1,3 +1,10 @@
+### 01/09/2023 - Sub
+Refactored all of the code in card_functions black_jack _functions, and blackjack_count_trainer.
+Now both functions are using classes for cards, decks, and hands.
+Sub classes overwrite certain functions for particular duties.
+Removed all remaining old code, building from scratch should be eaiser.
+
+
 ### 05/02/2019 - Sub
 Seperated all of the working code into corresponding files (basic card features into card_functions and basic blackjack features into blk_jak_functions).
 The game_over function sits in the main file, due to it needing to run a function from card_functions, yet referencing blackjack terms (busting).
