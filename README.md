@@ -21,4 +21,6 @@ To run the trainer:
 
 	python count_trainer.py
 
-Once running, just enter a name, it then randomly displays 1-104 cards with a delay. Afterwards it will ask for the count, and inform you if correct. To play again, just run it again.
+Once running, enter a name, how many decks you would like to use* and how many cards to be dealt*. Afterwards it will run through the cards, and then ask for the count, and inform you if correct; if you are incorrect, it will show you a log of all the cards dealt, and the current count to review. To play again, just run it again.
+
+* Currently a known issue with the function used, check the CHANGELOG and TODO to see if resolved (this disclaimer should be removed upon that event)

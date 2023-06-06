@@ -5,9 +5,7 @@ import sys
 import card_functions
 
 # Variable Setup
-
-
-# Prints the player's current hand, the total value, and the running count
+text_count = "What is the count?"
 
 class BlackJackHAND(card_functions.Hand):
     def __init__(self, name):
@@ -26,6 +24,7 @@ class BlackJackHAND(card_functions.Hand):
         return self
     
     def bustCheck(self):
+        """Checks if hand total is over 21, meaning the hand is bust and out of the round"""
         if self.total > 21:
             return True
         else:

@@ -12,6 +12,10 @@ card_pool = {'Ace' : 'A', 'Two' : '2', 'Three' : '3', 'Four' : '4', 'Five' : '5'
     'Queen' : 'Q', 'King' : 'K'}
 symbol = {'C': '♣', 'D': '♦', 'H': '♥', 'S': '♠'}
 
+# Reference text
+text_decks = 'Please enter how many decks to use'
+text_cards = 'Please enter how many cards to select'
+
 class Card:
     def __init__(self, name, suit, value) -> None:
         "Generates with a name, suit, and value"
@@ -105,7 +109,17 @@ class Hand:
                     except:
                         return card
             print("Please enter either the entire card or just the value")
-      
+
+def confirm_integer(text):
+    """Verifies that a variable is actually an integer"""
+    while True:
+        number = input(f"{text} > ")
+        try:
+            number = int(number)
+            return number
+        except:
+            print('Please enter a valid number')
+
 if __name__ == "__main__":
     print('This file contains basic card game functions.')
     sys.exit()
